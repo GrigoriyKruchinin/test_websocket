@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <h1>WebSocket Test</h1>
+    <div id="log"></div>
+    <script>
+        var log = document.getElementById('log');
+        var ws = new WebSocket('ws://' + window.location.host + '/ws/count/');
+
+        ws.onmessage = function(event) {
+            var message = document.createElement('div');
+            message.textContent = event.data;
+            log.appendChild(message);
+        };
+    </script>
+</body>
+</html>
